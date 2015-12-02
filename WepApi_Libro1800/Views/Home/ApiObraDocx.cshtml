@@ -1,0 +1,49 @@
+﻿
+
+<h2>@ViewBag.Title</h2>
+
+
+<div class="row">
+
+    <div class="col-lg-4 col-md-4 col-sm-4">
+
+        <div class="codeiz">
+            <pre id="code1">
+$.ajax({
+    url: 'http://localhost:1010/api/ApiObra/getNombreCampos',
+    type: 'GET',
+    dataType: 'json',
+    success: function (json, textStatus, xhr) {
+        console.log(json);
+    },
+    error: function (xhr, textStatus, errorThrown) {
+        console.log('Error in Database');
+    }
+});
+            </pre>
+        </div>
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $.ajax({
+                    url: 'http://localhost:1010/api/ApiObra/getNombreCampos',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (json, textStatus, xhr) {
+                        console.log(json);
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        console.log('Error in Database');
+                    }
+                });
+            });
+
+        </script>
+    </div>
+
+
+    <div class="col-lg-4 col-md-4 col-sm-4">
+
+    </div>
+</div>

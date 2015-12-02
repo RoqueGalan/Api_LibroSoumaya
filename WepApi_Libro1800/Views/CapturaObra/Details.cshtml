@@ -1,0 +1,694 @@
+﻿@model WepApi_Libro1800.Models.Obra
+
+@{
+    ViewBag.Title = "Detalles " + Model.NoInventario;
+
+    int ObraSig = ViewBag.ObraSiguiente;
+    int ObraAnt = ViewBag.ObraAnterior;
+}
+
+<h1>
+    Detalles del Registro
+
+    <span class="text-primary pull-right">
+
+        @if (ObraAnt == 0)
+        {
+            <span class="btn btn-default btn-xs disabled" data-toggle="tooltip" title="Obra Anterior"><span class='glyphicon glyphicon-chevron-left'></span></span>
+        }
+        else
+        {
+            <a href="@Url.Action("Details", "CapturaObra", new  {id = ObraAnt })" class="btn btn-default btn-xs " data-toggle="tooltip" title="Obra Anterior"><span class='glyphicon glyphicon-chevron-left'></span></a>
+        }
+
+        <b>@Model.NoInventario</b>
+
+        @if (ObraSig == 0)
+        {
+            <span class="btn btn-default btn-xs disabled" data-toggle="tooltip" title="Obra Siguiente"><span class='glyphicon glyphicon-chevron-right'></span></span>
+        }
+        else
+        {
+            <a href="@Url.Action("Details", "CapturaObra", new  {id = ObraSig })" class="btn btn-default btn-xs " data-toggle="tooltip" title="Obra Siguiente"><span class='glyphicon glyphicon-chevron-right'></span></a>
+        }
+
+    </span>
+</h1>
+
+
+
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NoCatalogo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoCatalogo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NoInventario)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoInventario)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Coleccion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Coleccion)
+            </dd>
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.ImagenRuta)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ImagenRuta)
+                </dd>*@
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.ImagenRuta2)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ImagenRuta2)
+                </dd>*@
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.ImagenRuta3)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ImagenRuta3)
+                </dd>*@
+
+
+
+
+
+            <dt class="text-primary">
+                <b>Datos del Autor</b>
+            </dt>
+            <dd></dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_Prefijo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_Prefijo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_Pseudonimo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_Pseudonimo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_ApellidoPaterno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_ApellidoPaterno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_ApellidoMaterno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_ApellidoMaterno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_NacimientoLugar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_NacimientoLugar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_NacimientoFecha)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_NacimientoFecha)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_MuerteLugar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_MuerteLugar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_MuerteFecha)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_MuerteFecha)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_ActividadLugar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_ActividadLugar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_ActividadFechaInicio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_ActividadFechaInicio)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Aut_ActividadFechaFin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aut_ActividadFechaFin)
+            </dd>
+
+
+
+
+
+
+            <dt class="text-primary">
+                <b>Datos del Autor del marco</b>
+            </dt>
+            <dd></dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AutMarco_Nombre)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AutMarco_Nombre)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AutMarco_ApellidoPaterno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AutMarco_ApellidoPaterno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AutMarco_ApellidoMaterno)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AutMarco_ApellidoMaterno)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AutMarco_NacimientoLugar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AutMarco_NacimientoLugar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AutMarco_NacimientoFecha)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AutMarco_NacimientoFecha)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AutMarco_MuerteLugar)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AutMarco_MuerteLugar)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AutMarco_MuerteFecha)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AutMarco_MuerteFecha)
+            </dd>
+
+
+
+
+
+            <dt class="text-primary">
+                <b>Datos de la obra</b>
+            </dt>
+            <dd></dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Titulo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SubTitulo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SubTitulo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TituloLenguaOriginal)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TituloLenguaOriginal)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TituloIngles)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TituloIngles)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaFacturaObra)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaFacturaObra)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaConcepcion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaConcepcion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FechaEjecucion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FechaEjecucion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TecnicaObra)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TecnicaObra)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TecnicaMarco)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TecnicaMarco)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedidasObra)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedidasObra)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedidasMarco)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedidasMarco)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MedidasBase)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MedidasBase)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Firma)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Firma)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sello)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sello)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Serie)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Serie)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Inscripciones)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Inscripciones)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.FundidorAutorizacion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FundidorAutorizacion)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Procedencia)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Procedencia)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AutorTexto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AutorTexto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StatusTexto)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StatusTexto)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ObservacionesObra)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ObservacionesObra)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo3)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo3)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo4)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo4)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo5)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo5)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo6)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo6)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo7)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo7)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo8)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo8)
+            </dd>
+
+
+
+
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo9)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo9)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo10)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo10)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo11)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo11)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo12)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo12)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo13)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo13)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo14)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo14)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo15)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo15)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Parrafo16)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Parrafo16)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RevistaMensual)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RevistaMensual)
+            </dd>
+
+
+            <dt class="text-primary">
+                <b>Otros</b>
+            </dt>
+            <dd></dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Observaciones)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Observaciones)
+            </dd>
+
+
+            <dt class="text-primary">
+                <b>Multimedia y RA's</b>
+            </dt>
+            <dd></dd>
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.Ra_Audio)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Ra_Audio)
+                </dd>*@
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.Ra_Video)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Ra_Video)
+                </dd>*@
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.Ra_Interactivo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Ra_Interactivo)
+                </dd>*@
+
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.Ra_Otro)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Ra_Otro)
+                </dd>*@
+
+        </dl>
+    </div>
+
+
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="text-center">
+            <b class="text-primary">Multimedia y RA's</b>
+            <br />
+        </div>
+        @if (!string.IsNullOrWhiteSpace(Model.ImagenRuta))
+        {
+            <div class="text-center ">
+                <p class="text-warning">Imagen</p>
+
+                <img src="@Model.ImagenRuta" class="img-thumbnail img-responsive" />
+
+                <p>
+                    <span><b>Posición:</b> @Model.ImagenPosicion</span> | <span><b>Alto:</b> @Model.ImagenAlto | <span><b>Ancho:</b> @Model.ImagenAncho</span></span>
+                </p>
+
+            </div>
+
+
+
+            <hr />
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.Ra_Audio))
+        {
+            <div class="text-center ">
+                <p class="text-warning">Audio</p>
+
+                <div class="div500">
+                    <audio controls>
+                        <source src="@Model.Ra_Audio" type="audio/mp3">
+                        Tu navegador no soporta este elemento.
+                    </audio>
+                </div>
+            </div>
+            <hr />
+
+        }
+
+        @if (!string.IsNullOrWhiteSpace(Model.Ra_Video))
+        {
+            <div class="text-center ">
+                <p class="text-warning">Video</p>
+
+                <div class="div500">
+                    <video controls>
+                        <source src="@Model.Ra_Video" type="video/mp4">
+                        Tu navegador no soporta este elemento.
+                    </video>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
+
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ObraID }, new { @Class = "btn btn-primary" })
+    @Html.ActionLink("Regresar", "Index", null, new { @Class = "btn btn-default" })
+</p>

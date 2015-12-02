@@ -1,0 +1,48 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+
+
+
+.codeiz{
+    background-color:yellow;
+    height:200px;
+
+}
+
+
+.dl-horizontal dt{
+    width: 260px;
+}
+
+
+.dl-horizontal dd {
+    margin-left: 280px;
+  }
+
+
+.div500{
+    height:400px;
+    width: 400px;
+}
+
+
+/* This will style any <img> element in .parent div */
+.div500 img {
+   height: 100%;
+}
+
+
+.div500 audio{
+    width: 100%;
+}
+

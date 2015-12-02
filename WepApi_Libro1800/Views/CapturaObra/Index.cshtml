@@ -1,0 +1,65 @@
+﻿@model PagedList.IPagedList<WepApi_Libro1800.Models.Obra>
+@using PagedList.Mvc;
+
+
+@{
+    ViewBag.Title = "Index";
+
+    bool EstaLogeado = Session["login"] == null ? false : (bool)Session["login"];
+}
+
+<h2>Index</h2>
+
+<div id="contentPager" class="text-center center-block">
+    @Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina = pagina }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< Inicio", LinkToPreviousPageFormat = "< Anterior", LinkToNextPageFormat = "Siguiente >", LinkToLastPageFormat = "Final >>", UlElementClasses = new[] { "pagination", "pagination-sm" } })
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            No.Inventario
+        </th>
+
+        <th>
+            Titulo de la obra
+        </th>
+
+        <th>
+            Observaciones
+        </th>
+
+        <th>
+            @Html.ActionLink("Nuevo Registro", "Create", null, new { @Class = "btn btn-success" })
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoInventario)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.ObservacionesObra)
+            </td>
+
+            <td>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ObraID }, new { @Class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Ver", "Details", new { id = item.ObraID }, new { @Class = "btn btn-default btn-sm" })
+                    @*@Html.ActionLink("Delete", "Delete", new { id=item.ObraID }, new { @Class = "btn btn-danger btn-xs" })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<div id="contentPager" class="text-center center-block">
+    @Html.PagedListPager(Model, pagina => Url.Action("Index", new { pagina = pagina }), new PagedListRenderOptions { LinkToFirstPageFormat = "<< Inicio", LinkToPreviousPageFormat = "< Anterior", LinkToNextPageFormat = "Siguiente >", LinkToLastPageFormat = "Final >>", UlElementClasses = new[] { "pagination", "pagination-sm" } })
+</div>
